@@ -8,6 +8,11 @@ use Illuminate\Auth\Access\Response;
 
 class TaskPolicy
 {
+    public function viewAny(User $user): bool
+    {
+        return true;
+    }
+
     public function update(User $user, Task $task): bool
     {
         return $user->id === $task->user_id;
@@ -16,5 +21,10 @@ class TaskPolicy
     public function delete(User $user, Task $task): bool
     {
         return $user->id === $task->user_id;
+    }
+
+    public function create(User $user): bool
+    {
+        return true;
     }
 }

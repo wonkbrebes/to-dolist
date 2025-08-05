@@ -12,7 +12,23 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @unless (app()->runningInConsole())
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @endunless
+
+        {{-- Day.js for relative time --}}
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+        <script>dayjs.extend(window.dayjs_plugin_relativeTime);</script>
+        <style>
+            /* Custom styles for a polished look */
+            @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+            .task-item { animation: fadeIn 0.3s ease-out forwards; }
+            .filter-btn.active { background-color: #3b82f6; color: white; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+            .form-icon { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); color: #9ca3af; }
+            .input-with-icon { position: relative; }
+            .input-with-icon input, .input-with-icon select { padding-left: 2.5rem; }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

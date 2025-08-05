@@ -27,8 +27,10 @@
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
-        <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="GOOGLE_CLIENT_ID" value="test_client_id"/>
+        <env name="GOOGLE_CLIENT_SECRET" value="test_client_secret"/>
+        <env name="GOOGLE_REDIRECT_URI" value="http://localhost/auth/google/callback"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
     </php>
 </phpunit>
